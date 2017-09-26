@@ -1,0 +1,31 @@
+{
+  "name": "word-cloud",
+  "version": "1.0.0",
+  "description": "visualize name data",
+  "main": "index.js",
+  "scripts": {
+    "webpack": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coreyarch1234/word-cloud.git"
+  },
+  "author": "corey harrilal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coreyarch1234/word-cloud/issues"
+  },
+  "homepage": "https://github.com/coreyarch1234/word-cloud#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
+    "webpack": "^3.6.0"
+  },
+  "dependencies": {
+    "axios": "^0.16.2"
+  }
+}
