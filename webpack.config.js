@@ -22,4 +22,4 @@ var webpack = require('webpack');
          colors: true
      },
      devtool: 'source-map'
- };
+  };

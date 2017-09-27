@@ -10350,7 +10350,7 @@ var Name = function (_React$Component) {
                 console.log("successful api request");
                 console.log(resp.data.data.stations[0]);
                 _this2.setState({
-                    data: [resp.data.data.stations[0]]
+                    data: [resp.data.data.stations[0].lat]
                 });
             }).catch(console.error);
         }
@@ -10363,7 +10363,7 @@ var Name = function (_React$Component) {
                 React.createElement(
                     'p',
                     null,
-                    'The data is: ',
+                    'The sd is: ',
                     this.state.data
                 )
             );

@@ -17,7 +17,7 @@ class Name extends React.Component {
             console.log("successful api request");
             console.log(resp.data.data.stations[0]);
             this.setState({
-                data: [resp.data.data.stations[0]]
+                data: [resp.data.data.stations[0].lat]
             });
         })
         .catch(console.error);
@@ -26,7 +26,7 @@ class Name extends React.Component {
     render() {
         return (
             <div>
-                <p>The data is: {this.state.data}</p>
+                <p>The sd is: {this.state.data}</p>
             </div>
         );
     }

@@ -4,7 +4,7 @@
   "description": "visualize name data",
   "main": "index.js",
   "scripts": {
-    "webpack": "webpack"
+      "webpack": "webpack"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
     "webpack": "^3.6.0"
   },
   "dependencies": {
-    "axios": "^0.16.2"
+    "axios": "^0.16.2",
+    "webpack-dev-server": "^2.8.2"
   }
 }
