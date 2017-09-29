@@ -10340,7 +10340,7 @@ var App = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
         _this.state = {
-            data: null
+            imageURL: null
         };
         return _this;
     }
@@ -10351,12 +10351,28 @@ var App = function (_React$Component) {
             var _this2 = this;
 
             //geocode address and get {lat, lon}
-            axios.get('https://api.astrodigital.com/v2.0/search/?contains=-122.4376,37.7577').then(function (response) {
+            var location = {
+                lat: address.lat,
+                lon: address.lon
+            };
+            var query = 'https://api.astrodigital.com/v2.0/search/?' + 'contains=' + location.lat + ',' + location.lon;
+
+            console.log(query);
+            axios.get(query).then(function (response) {
                 console.log(response);
-                _this2.setState({ data: response.data.results[0].thumbnail });
+                _this2.setState({ imageURL: response.data.results[0].thumbnail });
             }).catch(function (error) {
                 console.log(error);
             });
+        }
+    }, {
+        key: 'showImage',
+        value: function showImage() {
+            if (this.state.imageURL === null) {
+                return React.createElement('div', null);
+            } else {
+                return React.createElement('img', { src: this.state.imageURL });
+            }
         }
     }, {
         key: 'componentWillMount',
@@ -10364,6 +10380,8 @@ var App = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
+            var _this3 = this;
+
             return React.createElement(
                 'div',
                 null,
@@ -10372,8 +10390,15 @@ var App = function (_React$Component) {
                     label: 'Search',
                     onSubmit: function onSubmit(address) {
                         console.log("address: ", address);
-                        // this.findSatelliteImage(address);
-                    } })
+                        var addressArr = address.split(",");
+                        console.log(addressArr);
+                        address = {
+                            lat: addressArr[0],
+                            lon: addressArr[1]
+                        };
+                        _this3.findSatelliteImage(address);
+                    } }),
+                this.showImage()
             );
         }
     }]);
@@ -10437,7 +10462,7 @@ var Search = function (_Component) {
                     { onSubmit: function onSubmit(e) {
                             e.preventDefault(); //so page does not refresh after submission
                             _this2.props.onSubmit(_this2.state.searchTerm);
-                        } },
+                        }, style: styles.form },
                     _react2.default.createElement("input", {
                         type: "text",
                         placeholder: this.props.placeholder,
@@ -10447,8 +10472,7 @@ var Search = function (_Component) {
                             _this2.setState({
                                 searchTerm: e.target.value
                             });
-                        }
-                    }),
+                        }, style: styles.input }),
                     _react2.default.createElement(
                         "button",
                         { type: "submit" },
@@ -10461,6 +10485,16 @@ var Search = function (_Component) {
 
     return Search;
 }(_react.Component);
+
+var styles = {
+    form: {
+        display: 'flex',
+        justifyContent: 'center'
+    },
+    input: {
+        //  color: '#fff'
+    }
+};
 
 exports.default = Search;
 

@@ -15,7 +15,7 @@ class Search extends Component{
             <form onSubmit={(e) =>{
                 e.preventDefault(); //so page does not refresh after submission
                 this.props.onSubmit(this.state.searchTerm);
-            }}>
+            }} style={styles.form}>
                 <input
                     type="text"
                     placeholder = {this.props.placeholder}
@@ -24,13 +24,23 @@ class Search extends Component{
                         this.setState({
                             searchTerm: e.target.value
                         })
-                    }}
-                    />
+                    }} style={styles.input}/>
                 <button type="submit">{this.props.label}</button>
             </form>
             </div>
         );
     }
+}
+
+
+const styles = {
+      form: {
+         display: 'flex',
+         justifyContent: 'center'
+     },
+     input: {
+        //  color: '#fff'
+     }
 }
 
 export default Search;
