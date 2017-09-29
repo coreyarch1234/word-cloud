@@ -4,7 +4,7 @@
   "description": "visualize name data",
   "main": "index.js",
   "scripts": {
-      "webpack": "webpack"
+    "webpack": "webpack"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,8 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "rapidapi-connect": "0.0.6",
+    "wajs": "0.0.17",
     "webpack-dev-server": "^2.8.2"
   }
 }
